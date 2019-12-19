@@ -1,0 +1,48 @@
+// data in struct
+struct NewsArtical {
+    authur: String,
+    containt: String,
+}
+struct Tweet {
+    user: String,
+    containt: String,
+}
+//////////////////////////////////////////////////
+// here in below trait we use two function one is summrized and other is authur
+// and than use onen in below implitation block
+
+
+
+//////////////////////////////////////////////////
+// traits
+pub trait Summary {
+    fn authur(&self)-> String;
+    fn summrized(&self) -> String {
+        format!(" {} ",self.authur())
+    }
+}
+/////////////////////////////////////////////////
+//implimention block
+
+
+impl Summary for Tweet {
+    fn authur(&self) -> String {
+        format!("  \n quoataion by \n  {}  " ,&self.user)
+    }
+}
+//////////////////////////////////////////////////
+
+fn main() {
+    let tweet_1 = Tweet {
+        user: String::from("Mashood Hussain"),
+        containt: String::from(" honesty is the best policy "),
+    };
+
+    let news_artical = NewsArtical {
+        authur: String::from("Masdhood Husaain"),
+        containt: String::from("The stcok market is going to crash"),
+    };
+
+    println!(" {} \n ", tweet_1.summrized());
+  
+}
