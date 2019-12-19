@@ -1,0 +1,45 @@
+// data in struct
+struct NewsArtical {
+    authur: String,
+    containt: String,
+}
+struct Tweet {
+    user: String,
+    containt: String,
+}
+//////////////////////////////////////////////////
+
+// traits
+pub trait Summary {
+    fn summrized(&self) -> String;
+}
+/////////////////////////////////////////////////
+//implimention block
+
+impl Summary for NewsArtical {
+    fn summrized(&self) -> String {
+        format!("{} says  \n  {}  ", self.containt, self.authur)
+    }
+}
+
+impl Summary for Tweet {
+    fn summrized(&self) -> String {
+        format!(" '{}'  \n quoataion by \n  {}  ", self.containt, self.user)
+    }
+}
+//////////////////////////////////////////////////
+
+fn main() {
+    let tweet_1 = Tweet {
+        user: String::from("Mashood Hussain"),
+        containt: String::from(" honesty is the best policy "),
+    };
+
+    let news_artical = NewsArtical {
+        authur: String::from("Masdhood Husaain"),
+        containt: String::from("The stcok market is going to crash"),
+    };
+
+    println!(" {} \n ", tweet_1.summrized());
+    println!(" {} \n  ", news_artical.summrized())
+}
